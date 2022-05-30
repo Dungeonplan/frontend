@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthorizeComponent } from "./components/authorize/authorize.component";
-import { DashboardComponent } from "./components/dashboard/dashboard.component";
-import {AuthorizeGuard} from "./guards/authorize.guard";
+import { AuthorizationResolver } from './services/authorization.resolver';
 
 const routes: Routes = [
   {
@@ -10,19 +8,27 @@ const routes: Routes = [
     children: [
       {
         path: 'authorize/:token',
-        component: AuthorizeComponent,
-        canActivate: [AuthorizeGuard]
+        loadChildren: () =>
+          import('./modules/routing/dummy/dummy.module').then(
+            (m) => m.DummyModule
+          ),
+        resolve: {
+          routeResolver: AuthorizationResolver,
+        },
       },
       {
         path: 'dashboard',
-        component: DashboardComponent
-      }
-    ]
-  }
+        loadChildren: () =>
+          import('./modules/routing/dashboard/dashboard.module').then(
+            (m) => m.DashboardModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

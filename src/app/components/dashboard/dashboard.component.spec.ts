@@ -1,14 +1,21 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard.component';
-import {RouterTestingModule} from "@angular/router/testing";
+import { UserStoreService } from '../../services/user-store.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
 
+  const userStoreServiceMock = {
+    getCurrentToken: jest.fn(),
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [],
+      providers: [
+        { provide: UserStoreService, useValue: userStoreServiceMock },
+      ],
       declarations: [DashboardComponent],
     }).compileComponents();
   });

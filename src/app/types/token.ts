@@ -1,8 +1,8 @@
-import {UserAction} from "./userAction";
-import {Role} from "./role";
+import { UserAction } from './userAction';
+import { Role } from './role';
 
 export interface Token {
-  token: string,
-  user_actions: UserAction[],
-  roles: Role[]
+  token: string;
+  user_actions: UserAction[];
+  roles: Role[];
 }

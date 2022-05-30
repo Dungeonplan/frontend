@@ -37,6 +37,7 @@ yarn-error.log
 testem.log
 /typings
 13.3.6
+junit.xml
 
 # System files
 .DS_Store

@@ -7,17 +7,24 @@ import { AppComponent } from './app.component';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { AuthorizeComponent } from "./components/authorize/authorize.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import {BackendApiService} from "./services/backendApi.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+                AuthorizeComponent,
+                DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MenubarModule,
     InputTextModule,
     ButtonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [BackendApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -94,7 +94,6 @@ import { AppCodeModule } from './blocks/app-code/app.code.component';
 import { AppCalendarComponent } from './pages/app.calendar.component';
 import { AppAccessdeniedComponent } from './pages/app.accessdenied.component';
 import { AppErrorComponent } from './pages/app.error.component';
-import { AppLoginComponent } from './pages/app.login.component';
 import { AppNotfoundComponent } from './pages/app.notfound.component';
 import { AppTimelineDemoComponent } from './pages/app.timelinedemo.component';
 import { AppMenuComponent } from './app.menu.component';
@@ -213,7 +212,6 @@ FullCalendarModule.registerPlugins([
     AppAccessdeniedComponent,
     AppErrorComponent,
     AppTimelineDemoComponent,
-    AppLoginComponent,
     AppNotfoundComponent,
     AppMenuComponent,
     AppMenuitemComponent,

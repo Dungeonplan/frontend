@@ -23,6 +23,13 @@ const routes: Routes = [
             (m) => m.DashboardModule
           ),
       },
+      {
+        path: 'login',
+        loadChildren: () =>
+          import('./modules/routing/login/login.module').then(
+            (m) => m.LoginModule
+          ),
+      },
     ],
   },
 ];

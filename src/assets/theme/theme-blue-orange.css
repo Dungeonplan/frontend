@@ -1987,11 +1987,6 @@ p-treeselect.ng-invalid.ng-dirty > .p-treeselect {
   background: #5663f7;
   border: unset;
   border-radius: 10px;
-  font-size: 2.5rem !important;
-}
-
-.pi-discord {
-  font-size: 2rem !important;
 }
 
 .discord-button:enabled:hover {

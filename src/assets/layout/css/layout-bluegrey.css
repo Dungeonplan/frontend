@@ -2493,17 +2493,60 @@ a {
 }
 .login-body {
   padding: 0;
-  background: url("../../layout/images/pages/login-bg.jpg");
   background-size: cover;
   overflow: hidden;
   margin: 0 auto;
   position: relative;
   height: 100vh;
 }
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-20deg, red 50%, #000 50%);
+  bottom: 0;
+  left: -100%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.content {
+  background-color: rgba(175, 87, 87, 0.8);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
 .login-body .login-topbar {
   height: 60px;
   padding: 15px 150px 15px 150px;
-  background-color: #3a3e45;
+  background-color: #0e0f0f;
   -webkit-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.24);
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.24);
@@ -2519,16 +2562,15 @@ a {
   margin-left: 24px;
 }
 .login-body .login-panel {
-  border-top: 4px solid #fff;
+  border-top: 4px solid #0e0f0f;
   padding: 0 70px 20px 70px;
-  height: 350px;
   width: 560px;
   position: fixed;
   left: 50%;
   top: 50%;
   margin-left: -280px;
   margin-top: -175px;
-  background-color: rgba(0, 0, 0, 0.13);
+  background-color: rgba(0, 0, 0, 0.274);
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -2536,13 +2578,14 @@ a {
 .login-body .login-panel h1 {
   display: inline-block;
   font-size: 16px;
-  background-color: #fff;
+  background-color: #0e0f0f;
   margin: 0 0 16px 0;
   color: #666666;
   padding: 4px 8px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
+  color: #fff;
 }
 .login-body .login-panel p {
   color: #c8c8c8;
@@ -2577,6 +2620,10 @@ a {
   display: block;
   min-width: 120px;
   padding: 0.5rem 1rem;
+}
+
+.login-panel-inside {
+  text-align: -webkit-center;
 }
 
 @media screen and (max-width: 40em) {

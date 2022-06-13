@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
@@ -9,7 +9,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { MenuService } from './app.menu.service';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ScrollPanelModule, RouterTestingModule],
       declarations: [

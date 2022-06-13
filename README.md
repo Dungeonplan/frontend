@@ -15,6 +15,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 For visualizations and all UI components we use PrimeNG:
 https://primefaces.org/primeng/
 
+## Install githooks
+Run `npx simple-git-hooks` before committing to the repository! This will ensure, only prettified and linted files are committed.
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.

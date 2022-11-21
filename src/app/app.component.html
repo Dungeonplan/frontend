@@ -1,1 +1,54 @@
-<router-outlet></router-outlet>
+<div class="container">
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()" *ngIf="this.user.isLoggedIn">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <span>Dungeonplan</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="this.user.isLoggedIn">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <div class="mat-subheading-2 username">{{ this.user.username }}</div>
+      <button mat-menu-item routerLink="/profile">
+          <mat-icon>account_box</mat-icon>
+          <span>Profile</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="logout()">
+          <mat-icon>power_settings_new</mat-icon>
+          <span>Logout</span>
+      </button>
+  </mat-menu>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0" >
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+            <mat-list-item routerLink="/dashboard">
+                <mat-icon mat-list-icon>dashboard</mat-icon>
+                Dashboard
+            </mat-list-item>
+            <mat-list-item routerLink="/admin" *ngIf="this.user.canViewAdminPanel()">
+                <mat-icon mat-list-icon>admin_panel_settings</mat-icon>
+                Admin
+            </mat-list-item>
+            <!--<mat-list-item routerLink="/wifi">
+                <mat-icon mat-list-icon>wifi</mat-icon>
+                Wifi
+            </mat-list-item>
+            <mat-list-item routerLink="/vpn">
+                <mat-icon mat-list-icon>vpn_lock</mat-icon>
+                VPN
+            </mat-list-item>
+            -->
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

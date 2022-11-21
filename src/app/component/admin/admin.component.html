@@ -1,0 +1,60 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Roles" *ngIf="userCanSeeRolesTab()">
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Role" #input>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef> {{getColumnName(column)}} </th>
+        <td mat-cell *matCellDef="let role"> {{role[column]}} </td>
+      </ng-container>
+      <ng-container matColumnDef="expand">
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+        <td mat-cell *matCellDef="let role">
+          <button mat-icon-button aria-label="expand row"
+            (click)="(expandedRole = expandedRole === role ? null : role); $event.stopPropagation(); rowClicked(role)">
+            <mat-icon *ngIf="expandedRole !== role">keyboard_arrow_down</mat-icon>
+            <mat-icon *ngIf="expandedRole === role">keyboard_arrow_up</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let role" [attr.colspan]="columnsToDisplayWithExpand.length">
+          <div class="role-detail" [@detailExpand]="role == expandedRole ? 'expanded' : 'collapsed'">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Actions</mat-label>
+              <mat-select [formControl]="actions" multiple>
+                <mat-select-trigger>
+                  <span *ngFor="let action of actions.value; let indexOfelement=index"><span
+                      *ngIf="indexOfelement > 0">, </span> {{action.short_name}}</span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let action of allActions" [value]="action" [disabled]="role.id == 3">{{action.short_name}}
+                  <small><i>{{action.description}}</i></small>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="button-row">
+              <button mat-flat-button color="primary" class="row-button" (click)="actionsForRole(actions.value, role)" [disabled]="role.id == 3">Save</button>
+              &nbsp;
+              <button mat-flat-button color="warn" class="row-button" [disabled]="role.id == 3">Delete Role</button>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+      <tr mat-row *matRowDef="let role; columns: columnsToDisplayWithExpand;" class="role-row"
+        [class.expanded-row]="expandedRole === role" (click)="expandedRole = expandedRole === role ? null : role; rowClicked(role)">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="3">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </mat-tab>
+  <mat-tab label="Users">Content 2</mat-tab>
+</mat-tab-group>

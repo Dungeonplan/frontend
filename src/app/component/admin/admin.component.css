@@ -1,0 +1,70 @@
+table,
+mat-selection-list {
+  width: 100%;
+}
+
+mat-list-option {
+  white-space: nowrap;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.role-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.role-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.role-row td {
+  border-bottom-width: 0;
+}
+
+.role-detail {
+  overflow: hidden;
+}
+
+.role-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.role-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.role-description {
+  padding: 16px;
+}
+
+.role-description-attribution {
+  opacity: 0.5;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.row-button {
+  margin-bottom: 16px;
+}

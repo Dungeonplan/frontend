@@ -1,6 +1,6 @@
-# Dungeonplan
+# Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
 
 ## Development server
 
@@ -9,14 +9,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## UI Library
-
-For visualizations and all UI components we use PrimeNG:
-https://primefaces.org/primeng/
-
-## Install githooks
-Run `npx simple-git-hooks` before committing to the repository! This will ensure, only prettified and linted files are committed.
 
 ## Build
 
